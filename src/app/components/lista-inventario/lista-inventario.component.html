@@ -1,0 +1,28 @@
+<div class="container">
+
+    <div class="form-container" style="text-align: center; padding: 50px; ">
+        <h1>Entregar Inventario</h1>
+        <br>
+        @for (item of inventarios; track $index) {
+            <div class="mb-3 row">
+                <div class="col-sm-12">
+                    <!-- <label for="exampleFormControlInput1" class="form-label">{{item.nombreProducto}}</label> -->
+                    <input type="text" class="form-control readonly-input" value={{item.nombreProducto}} readonly>
+                </div>
+                <div class="col-sm-12">
+                    <!-- <label for="exampleFormControlInput1" class="form-label">{{item.numSerie}}</label> -->
+                    <input type="text" class="form-control readonly-input" value={{item.numSerie}} readonly>
+                </div>
+                <div class="col-sm-12">
+                    @if(item.estado == 1){
+                        <button type="button" class="btn btn-primary form-control" (click)="entregarInventario(item.idInventario)">Entregar</button>
+                    }@else {
+                        <button type="button" class="btn btn-success form-control" disabled>Entregado</button>
+                    }
+                </div>
+
+            </div>
+        }
+    </div>
+
+</div>
