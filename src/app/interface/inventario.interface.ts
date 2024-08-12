@@ -1,6 +1,6 @@
 export interface InventarioInterface{
-    idInventario: number;
-    estado: number;
+    id: number;
+    estado: boolean;
     numSerie: number;
     nombreUsuario: string;
     fechaCreate: Date;

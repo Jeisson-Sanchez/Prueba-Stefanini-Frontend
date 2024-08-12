@@ -14,8 +14,8 @@
                     <input type="text" class="form-control readonly-input" value={{item.numSerie}} readonly>
                 </div>
                 <div class="col-sm-12">
-                    @if(item.estado == 1){
-                        <button type="button" class="btn btn-primary form-control" (click)="entregarInventario(item.idInventario)">Entregar</button>
+                    @if(item.estado == true){
+                        <button type="button" class="btn btn-primary form-control" (click)="entregarInventario(item)">Entregar</button>
                     }@else {
                         <button type="button" class="btn btn-success form-control" disabled>Entregado</button>
                     }

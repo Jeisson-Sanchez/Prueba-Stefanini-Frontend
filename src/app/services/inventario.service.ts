@@ -12,22 +12,21 @@ export class InventarioService {
   constructor(private httpClient: HttpClient) { }
 
   getProductos(): Observable<any>{
-    return this.httpClient.get(this.URI+"Productos").pipe(
+    return this.httpClient.get(this.URI+"productos").pipe(
       res => res
     );
   }
 
   getinventarios(): Observable<any>{
-    return this.httpClient.get(this.URI+"Inventarios").pipe(res => res);
+    return this.httpClient.get(this.URI+"inventarios/").pipe(res => res);
   }
 
   postInventario(inventario: any): Observable<any>{
-    return this.httpClient.post(this.URI+"Inventario", inventario);
+    return this.httpClient.post(this.URI+"inventarios/", inventario);
   }
 
-  putEstadoInventario(idInventario: number, estado: number): Observable<any>{
-    const body = {idInventario, estado};
-    return this.httpClient.put(this.URI+"EstadoInventario", body);
+  putEstadoInventario(idInventario: number, inventario: any): Observable<any>{
+    return this.httpClient.put(this.URI+"inventarios/"+idInventario+"/", inventario);
   }
   
 }

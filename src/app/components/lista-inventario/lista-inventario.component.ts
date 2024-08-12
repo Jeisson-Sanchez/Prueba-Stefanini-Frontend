@@ -31,8 +31,14 @@ export class ListaInventarioComponent implements OnInit{
     })
   }
 
-  entregarInventario(idInventario: number) {
-    this.inventarioService.putEstadoInventario(idInventario, 2).subscribe({
+  entregarInventario(inventario: InventarioInterface) {
+    const updatedInventario = { ...inventario, estado: false }; 
+
+    // console.log('ID del inventario:', inventario.id);
+    // console.log('objeto:', inventario);
+    // console.log('objeto2:', updatedInventario);
+
+    this.inventarioService.putEstadoInventario(inventario.id,updatedInventario).subscribe({
       next: (response) => {
         console.log('Estado del inventario actualizado');
         this.getInventarios(); 
